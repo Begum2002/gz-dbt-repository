@@ -1,0 +1,80 @@
+
+version: 2
+
+sources:
+  - name: raw
+    schema: gz_raw_data
+    tables:
+      - name: sales
+        identifier: raw_gz_sales
+        description: sales data of greenweez
+        columns:
+          - name: date_date
+            description: dates of the orders
+            tests:
+              - not_null
+          - name: orders_id
+            tests:
+              - not_null
+          - name: pdt_id
+            tests:
+              - not_null
+          - name: revenue
+            tests:
+              - not_null
+          - name: quantity
+            tests:
+              - not_null
+      - name: product
+        identifier: raw_gz_product
+        columns:
+          - name: products_id
+            tests:
+              - not_null
+          - name: purchSE_PRICE
+            tests:
+              - not_null
+      - name: ship
+        identifier: raw_gz_ship       
+        columns:
+          - name: orders_id
+            tests:
+              - not_null
+          - name: shipping_fee
+            tests: 
+              - not_null
+          - name: shipping_fee_1
+            tests: 
+              - not_null
+          - name: logCost
+            tests: 
+              - not_null
+          - name: ship_cost
+            tests: 
+              - not_null            
+              
+
+
+                 
+             
+               
+            
+
+models:
+    - name: my_first_dbt_model
+      description: "A starter dbt model"
+      columns:
+          - name: id
+            description: "The primary key for this table"
+            tests:
+                - unique
+                - not_null
+
+    - name: my_second_dbt_model
+      description: "A starter dbt model"
+      columns:
+          - name: id
+            description: "The primary key for this table"
+            tests:
+                - unique
+                - not_null
