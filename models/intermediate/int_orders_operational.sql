@@ -9,7 +9,7 @@ shipping AS (
     SELECT
         orders_id,
         CAST(shipping_fee AS FLOAT64) AS shipping_fee,
-        CAST(log_cost AS FLOAT64) AS log_cost,
+        CAST(logCost AS FLOAT64) AS log_cost,
         CAST(ship_cost AS FLOAT64) AS ship_cost
     FROM {{ ref('stg_raw__ship') }}
 )
