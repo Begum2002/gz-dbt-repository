@@ -33,6 +33,7 @@ sources:
               column_name: "(orders_id || '-' || pdt_id)" # iki sütun kombinasyonu
       - name: product
         identifier: raw_gz_product
+        description: table of products
         columns:
           - name: products_id
             tests:
@@ -42,6 +43,7 @@ sources:
               - not_null
       - name: ship
         identifier: raw_gz_ship
+        description: table of ship informations
         columns:
           - name: orders_id
             tests:
