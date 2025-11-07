@@ -1,4 +1,4 @@
--- models/mart/finance_days.sql
+-- models/mart/finance/finance_days.sql
 
 WITH orders_margin AS (
     SELECT *
