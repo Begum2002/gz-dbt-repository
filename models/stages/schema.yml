@@ -1,4 +1,3 @@
-
 version: 2
 
 sources:
@@ -8,6 +7,10 @@ sources:
       - name: sales
         identifier: raw_gz_sales
         description: sales data of greenweez
+        loaded_at_field: "CAST(date_date AS TIMESTAMP)"
+        freshness:
+          warn_after: { count: 90, period: day }
+
         columns:
           - name: date_date
             description: dates of the orders
@@ -25,8 +28,12 @@ sources:
           - name: quantity
             tests:
               - not_null
+        tests:
+          - unique:
+              column_name: "(orders_id || '-' || pdt_id)" # iki sütun kombinasyonu
       - name: product
         identifier: raw_gz_product
+        description: table of products
         columns:
           - name: products_id
             tests:
@@ -35,46 +42,23 @@ sources:
             tests:
               - not_null
       - name: ship
-        identifier: raw_gz_ship       
+        identifier: raw_gz_ship
+        description: table of ship informations
         columns:
           - name: orders_id
             tests:
               - not_null
           - name: shipping_fee
-            tests: 
+            tests:
               - not_null
           - name: shipping_fee_1
-            tests: 
+            tests:
               - not_null
           - name: logCost
-            tests: 
+            tests:
               - not_null
           - name: ship_cost
-            tests: 
-              - not_null            
-              
-
-
-                 
-             
-               
-            
-
-models:
-    - name: my_first_dbt_model
-      description: "A starter dbt model"
-      columns:
-          - name: id
-            description: "The primary key for this table"
             tests:
-                - unique
-                - not_null
+              - not_null
 
-    - name: my_second_dbt_model
-      description: "A starter dbt model"
-      columns:
-          - name: id
-            description: "The primary key for this table"
-            tests:
-                - unique
-                - not_null
+
