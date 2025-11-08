@@ -18,4 +18,4 @@ SELECT
     SUM(ship_cost) AS ship_cost
 FROM daily
 GROUP BY datemonth
-ORDER BY datemonth DESC;
+ORDER BY datemonth DESC

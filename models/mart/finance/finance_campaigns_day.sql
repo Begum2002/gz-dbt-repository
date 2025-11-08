@@ -5,7 +5,7 @@ campaigns AS (
     SELECT * FROM {{ ref('int_campaigns_day') }}
 )
 SELECT
-    f.date_date AS date,
+    f.order_date AS date,
     (f.total_operational_margin - c.ads_cost) AS ads_margin,
     f.avg_basket_value AS average_basket,
     f.total_operational_margin AS operational_margin,
@@ -21,5 +21,5 @@ SELECT
     f.total_shipping_fee AS ship_cost
 FROM finance f
 LEFT JOIN campaigns c
-    ON f.date_date = c.date_date
-ORDER BY f.date_date DESC;
+    ON f.order_date = c.date_date
+ORDER BY f.order_date DESC

@@ -8,4 +8,4 @@ SELECT
     SUM(ads_impression) AS ads_impression
 FROM campaigns
 GROUP BY date_date
-ORDER BY date_date DESC;
+ORDER BY date_date DESC
