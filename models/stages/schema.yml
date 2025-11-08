@@ -61,4 +61,15 @@ sources:
             tests:
               - not_null
 
-
+      - name: adwords
+        identifier: raw_gz_adwords
+        description: "Google AdWords campaign data"
+      - name: bing
+        identifier: raw_gz_bing
+        description: "Bing campaign data"
+      - name: criteo
+        identifier: raw_gz_criteo
+        description: "Criteo campaign data"
+      - name: facebook
+        identifier: raw_gz_facebook
+        description: "Facebook Ads campaign data"
